@@ -43,7 +43,7 @@ def private_handler(msg):
         text = 'نتیجه‌ای یافت نشد.'
     else:
         text = '_{}_:\n{}\nبرگرفته از _{}_'.format(data.get('title'), data.get('text'), data.get('source'))
-    bot.send_message(msg.chat.id, text)
+    bot.send_message(msg.chat.id, text, parse_mode='Markdown')
 
 
 @bot.message_handler(func=lambda m: m.chat.type in ['group', 'supergroup'] and m.text != '')
@@ -54,7 +54,7 @@ def private_handler(msg):
         text = 'نتیجه‌ای یافت نشد.'
     else:
         text = '_{}_:\n{}\nبرگرفته از _{}_'.format(data.get('title'), data.get('text'), data.get('source'))
-    bot.reply_to(msg.id, text)
+    bot.reply_to(msg.id, text, parse_mode='Markdown')
 
 
 @bot.inline_handler(lambda q: True)
