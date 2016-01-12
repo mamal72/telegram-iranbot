@@ -68,4 +68,4 @@ def send_inline(q):
     bot.answer_inline_query(q.id, [r])
 
 
-bot.polling()
+bot.polling(none_stop=True)
